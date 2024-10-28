@@ -1,0 +1,115 @@
+string:
+
+
+bList=['Zara','Kabir','Reema','Jack','Jill']
+print("Original list is:['Zara','Kabir','Reema','Jack','Jill']")
+bList.reverse()
+print("The reversed list is:",bList)
+
+
+
+for bubble sorting:
+
+
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        # If no two elements were swapped in the inner loop, then the array is already sorted
+        if not swapped:
+            break
+    return arr
+
+def main():
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original array:", arr)
+    sorted_arr = bubble_sort(arr)
+    print("Sorted array:", sorted_arr)
+if __name__ == "__main__":
+
+    main()
+
+
+
+Queue:
+
+
+
+from queue import Queue
+q = Queue(maxsize=4)
+print("Initial size before insertion: ", q.qsize())
+q.put('A')
+q.put('AA')
+q.put('AAA')
+q.put('AAAA')
+print("After insertion: ", q.qsize())
+print("Queue is full or not: ", q.full())
+print("Size of queue: ", q.qsize())
+print("Removing Element: ")
+print(q.get())
+print(q.get())
+print(q.get())
+print("Empty or Not??", q.empty())
+print(q.get())
+print("Empty or Not?? ", q.empty())
+print("Size of queue: ", q.qsize())
+
+
+
+
+
+binary search:
+
+
+
+def binsrch(alist, item):
+    first = 0
+    last = len(alist) - 1
+    found = False
+
+    while first <= last and not found:
+        midpoint = (first + last) // 2
+        if alist[midpoint] == item:
+            found = True
+        else:
+            if item < alist[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+
+    return found, midpoint
+
+
+test_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(binsrch(test_list, 5))  
+print(binsrch(test_list, 22))  
+
+
+
+
+
+sequential search:
+
+
+
+def sequential_search(dlist, item):
+    pos = 0
+    found = False
+    while pos < len(dlist) and not found:
+        if dlist[pos] == item:
+            found = True
+        else:
+            pos += 1
+    
+    
+        return found,pos
+   
+
+print(sequential_search([11, 23, 58, 31, 56, 77, 43, 12, 65, 19], 12))
+
+
